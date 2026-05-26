@@ -8,15 +8,16 @@ require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT || 3000;
 const allowedOrigins = [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'http://localhost:5175',
-    'https://resume-ats-analyzer-forntend.onrender.com',
-    'https://resume-ats-analyzer-2-g3nc.onrender.com',
-    process.env.CLIENT_URL,
-    process.env.FRONTEND_URL,
-    process.env.FRONTEND_ORIGIN
-].filter(Boolean)
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:5175",
+
+  "https://resume-ats-analizer.vercel.app",
+
+  process.env.CLIENT_URL,
+  process.env.FRONTEND_URL,
+  process.env.FRONTEND_ORIGIN
+].filter(Boolean);
 
 require('./conn');
 
@@ -24,15 +25,17 @@ require('./conn');
 
 app.use(express.json());
 app.use(cors({
-    credentials: true,
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            return callback(null, true)
-        }
-
-        return callback(new Error(`CORS blocked origin: ${origin}`))
+  credentials: true,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
     }
-}))
+
+    return callback(
+      new Error(`CORS blocked origin: ${origin}`)
+    );
+  }
+}));
 
 const UserRoutes = require('./Routes/user');
 const ResumeRoutes = require('./Routes/resume');
