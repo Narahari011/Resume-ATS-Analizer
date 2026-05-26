@@ -32,7 +32,7 @@ const Login = () => {
       })
 
       setLogin(true);
-      localStorage.setItem("isLogin",true)
+      localStorage.setItem("isLogin","true")
       navigate('/dashboard')
 
     } catch (err) {
