@@ -1,10 +1,8 @@
 import { initializeApp } from "firebase/app";
-import {getAuth , GoogleAuthProvider} from "firebase/auth";
-
-
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey:  "AIzaSyABoMp2F9uQOVqh1h-bWa9_oDtLjRXGoOw",
+  apiKey: "AIzaSyABoMp2F9uQOVqh1h-bWa9_oDtLjRXGoOw",
   authDomain: "resume-ats-6da55.firebaseapp.com",
   projectId: "resume-ats-6da55",
   storageBucket: "resume-ats-6da55.firebasestorage.app",
@@ -13,9 +11,14 @@ const firebaseConfig = {
   measurementId: "G-YX1716BR09"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+
 const provider = new GoogleAuthProvider();
 
-export {auth , provider};
+provider.setCustomParameters({
+  prompt: "select_account"
+});
+
+export { auth, provider };
