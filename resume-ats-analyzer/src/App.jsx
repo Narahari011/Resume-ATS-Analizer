@@ -15,8 +15,8 @@ function App() {
   return (
     <div className='outerbox'>
 
-      {/* Login page lo sidebar hide */}
-      {location.pathname !== "/" && <SideBar />}
+      {/* Login page & ChatBot page lo sidebar hide */}
+      {location.pathname !== "/" && location.pathname !== "/chatbot" && <SideBar />}
 
       <Routes>
         <Route path='/' element={<Login />} />
