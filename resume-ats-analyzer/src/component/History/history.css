@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #f94a6b;
+  --accent: #fca326;
+  --bg: #f0f4ff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(15,23,42,0.06);
+  --shadow-md: 0 8px 24px rgba(15,23,42,0.10);
+  --shadow-lg: 0 20px 48px rgba(15,23,42,0.13);
+  --radius: 20px;
+  --radius-lg: 28px;
+}
+
+/* ── Layout ── */
+.History {
+  flex: 0.8;
+  min-height: 100vh;
+  overflow: auto;
+  padding: 48px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(249,74,107,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(252,163,38,0.07) 0%, transparent 55%);
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Page Header ── */
+.HistoryHeader {
+  margin-bottom: 36px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.HistoryHeaderLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.HistoryHeaderTitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.HistoryCardBlock {
+  width: 100%;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card ── */
+.HistoryCard {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.HistoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.HistoryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.HistoryCard:hover::before {
+  opacity: 1;
+}
+
+/* ── Score Circle ── */
+.cardPercentage {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.cardPercentageLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.cardDate {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cardBadge {
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(252,163,38,0.15), rgba(249,74,107,0.15));
+  color: var(--primary-dark, #d63055);
+  border: 1px solid rgba(249,74,107,0.20);
+}
+
+/* ── Empty State ── */
+.HistoryEmpty {
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-muted);
+  animation: fadeUp 0.5s ease both;
+}
+
+.HistoryEmpty span:first-child {
+  font-size: 52px;
+}
+
+.HistoryEmpty span:last-child {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 1200px) {
+  .HistoryCardBlock {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .HistoryCardBlock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .History {
+    padding: 32px 28px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .History {
+    padding: 24px 20px;
+  }
+  .HistoryCardBlock {
+    grid-template-columns: 1fr;
+  }
+  .HistoryHeaderTitle {
+    font-size: 32px;
+  }
+}

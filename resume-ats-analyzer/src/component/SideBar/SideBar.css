@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
+
+.SideBar {
+  flex: 0.2;
+  background: linear-gradient(160deg, #c0112f, #dc173e, #e8294f);
+  color: white;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 4px 0 24px rgba(220,23,62,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* background texture */
+.SideBar::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.SideBar::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+/* ── Logo ── */
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 32px 28px 24px;
+  margin: 0;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Menu ── */
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ── Options — horizontal (icon + text side by side) ── */
+.sidebarOption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.2px;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebarOption:hover {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transform: translateX(4px);
+}
+
+.sidebarOption.active {
+  background: rgba(255,255,255,0.20);
+  color: white;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.25);
+}
+
+.sidebarOption.active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 3px;
+  border-radius: 4px;
+  background: white;
+}
+
+/* ── Logout — bottom aligned ── */
+.menu a:last-child .sidebarOption {
+  color: rgba(255,255,255,0.65);
+  margin-top: auto;
+}
+.menu a:last-child .sidebarOption:hover {
+  background: rgba(0,0,0,0.15);
+  color: white;
+}
