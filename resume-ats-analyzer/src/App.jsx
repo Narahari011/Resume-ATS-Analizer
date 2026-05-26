@@ -4,41 +4,26 @@ import DashBoard from './component/Dashboard/DashBoard'
 import History from './component/History/History'
 import Login from './component/Login/Login'
 import SideBar from './component/SideBar/SideBar'
-import ChatBot from "./component/ChatBot/ChatBot";
+import ChatBot from "./pages/ChatBot/ChatBot";
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 function App() {
 
+  const location = useLocation();
+
   return (
     <div className='outerbox'>
-      
-      <SideBar />
+
+      {/* Login page lo sidebar hide */}
+      {location.pathname !== "/" && <SideBar />}
 
       <Routes>
         <Route path='/' element={<Login />} />
-
-        <Route
-          path='/dashboard'
-          element={<DashBoard />}
-        />
-
-        <Route
-          path='/history'
-          element={<History />}
-        />
-
-        <Route
-          path='/admin'
-          element={<Admin />}
-        />
-
-        {/* ChatBot Route */}
-        <Route
-          path='/chatbot'
-          element={<ChatBot />}
-        />
-
+        <Route path='/dashboard' element={<DashBoard />} />
+        <Route path='/history' element={<History />} />
+        <Route path='/chatbot' element={<ChatBot />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
 
     </div>
