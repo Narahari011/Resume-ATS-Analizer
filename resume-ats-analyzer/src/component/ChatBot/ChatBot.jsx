@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Chatbot.css";
 
+
 const QUICK_PROMPTS = [
   { icon: "🔍", text: "What skills am I missing?" },
   { icon: "📈", text: "How can I improve my resume score?" },
