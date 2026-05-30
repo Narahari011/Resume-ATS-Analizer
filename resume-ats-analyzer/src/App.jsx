@@ -4,7 +4,7 @@ import DashBoard from './component/Dashboard/DashBoard'
 import History from './component/History/History'
 import Login from './component/Login/Login'
 import SideBar from './component/SideBar/SideBar'
-import ChatBot from "./pages/ChatBot/ChatBot";
+import ChatBot from "./component/ChatBot/ChatBot";
 
 import { Routes, Route, useLocation } from 'react-router-dom'
 
