@@ -1,19 +1,13 @@
-.cb-wrapper{
-    margin-left:240px; /* sidebar width */
-
-    width:calc(100% - 260px);
-    height:100vh;
-
-    display:flex;
-    flex-direction:column;
-
-    background:#f3f5fd;
-
-    overflow:hidden;
-
-    padding:15px;
-
-    box-sizing:border-box;
+.cb-wrapper {
+    margin-left: 0;                /* ← margin తీసేయి */
+    width: 100%;                   /* ← calc తీసేయి */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f3f5fd;
+    overflow: hidden;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .cb-header{
